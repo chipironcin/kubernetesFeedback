@@ -4,17 +4,18 @@ This container will run a very simple command line feedback application intended
 
 The docker image is already built and ready to use from [DockerHub repo](https://hub.docker.com/r/chipironcin/kubernetesfeedback/).
 
-##Quick instructions
-###Run in Docker
+## Quick instructions
+### Run in Docker
 ```
-docker run -d --name myFeedback chipironcin/feedbackappclient
-docker logs myFeedback
-docker exec -it myFeedback feedbackScript.sh
+docker run -d --name myfeedback chipironcin/kubernetesfeedback
+docker logs myfeedback
+docker exec -it myfeedback ./feedbackScript.sh
 ```
 
-###Run in Kubernetes
+### Run in Kubernetes
 ```
-kubectl run myFeedback --image=chipironcin/feedbackappclient
-kubectl get logs myFeedback
-kubectl exec myFeedback feedbackScript.sh
+kubectl run myfeedback<your_name> --image=chipironcin/kubernetesfeedback
+kubectl get pods | grep myfeedback<your_name>
+kubectl logs <your_pod_name>
+kubectl exec <your_pod_name> ./feedbackScript.sh
 ```
