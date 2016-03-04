@@ -75,8 +75,8 @@ fi
 
 echo "Let's close this workshop with some awesomeness...It's dangerous to go alone! Take this [press Enter]"
 read
-echo "Loading awesomeness, it will only take a few seconds"
+echo "Loading awesomeness, it will only take a few seconds........"
 
 tput sgr0
-apt-get update && apt-get install -y nyancat &> /dev/null
+apt-get update &>/dev/null && apt-get install -y nyancat &> /dev/null
 nyancat
