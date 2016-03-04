@@ -51,7 +51,11 @@ read -e -p "Suggestions, comments, improvements: $READ_PROMPT" COMMENTS
 
 
 echo "Wohoooo, you did it! Thanks for your answers, you are awesome!"
-read -p "Now, for the last part of the trick, we need you to write here the server URL that will be processing all this feedback (organizers at the workshop will let you know): $READ_PROMPT" SERVER_URL
+echo "Now, for the last part of the trick, we need to send this feedback to somewhere."
+
+while [ -n "$SERVER_URL" ]; do
+    read -p "Please enter the server URL that will be processing all this feedback (organizers at the workshop will let you know): $READ_PROMPT" SERVER_URL
+done
 
 echo "overall_rating=$OVERALL_RATING&worth_it=$WORTH_IT&most_liked=$MOST_LIKED&least_liked=$LEAST_LIKED&comments=$COMMENTS" > data.txt
 RESPONSE=$(curl -sS -X POST $SERVER_URL -d @data.txt --connect-timeout 15)
