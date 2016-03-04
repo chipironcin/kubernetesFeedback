@@ -11,6 +11,7 @@ READ_PROMPT=$(echo $'\n> ')
 
 OVERALL_RATING=""
 WRONG_INPUT=""
+SERVER_URL=""
 
 clear
 
@@ -53,7 +54,7 @@ read -e -p "Suggestions, comments, improvements: $READ_PROMPT" COMMENTS
 echo "Wohoooo, you did it! Thanks for your answers, you are awesome!"
 echo "Now, for the last part of the trick, we need to send this feedback to somewhere."
 
-while [ -n "$SERVER_URL" ]; do
+while [ "x$SERVER_URL" = "x"  ]; do
     read -p "Please enter the server URL that will be processing all this feedback (organizers at the workshop will let you know): $READ_PROMPT" SERVER_URL
 done
 
