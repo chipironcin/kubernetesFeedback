@@ -54,7 +54,7 @@ echo "Wohoooo, you did it! Thanks for your answers, you are awesome!"
 read -p "Now, for the last part of the trick, we need you to write here the server URL that will be processing all this feedback (organizers at the workshop will let you know): $READ_PROMPT" SERVER_URL
 
 echo "overall_rating=$OVERALL_RATING&worth_it=$WORTH_IT&most_liked=$MOST_LIKED&least_liked=$LEAST_LIKED&comments=$COMMENTS" > data.txt
-RESPONSE=$(curl -sS -X POST $SERVER_URL -d @data.txt --connect-timeout 3)
+RESPONSE=$(curl -sS -X POST $SERVER_URL -d @data.txt --connect-timeout 15)
 if [ $? -ne 0 ]
 then
     echo "Data was not sent successfully. Please check the parameter you introduced and run the feedback tool again :("
